@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Den förlorade Juston", "Den förlorade Juston\Den förlorade Juston.csproj", "{69A0243F-0E30-49CF-A19C-74F05520B5D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69A0243F-0E30-49CF-A19C-74F05520B5D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A0243F-0E30-49CF-A19C-74F05520B5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A0243F-0E30-49CF-A19C-74F05520B5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69A0243F-0E30-49CF-A19C-74F05520B5D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B91DDC3-8929-4A16-9C0D-4C4F6A00D7A7}
+	EndGlobalSection
+EndGlobal
