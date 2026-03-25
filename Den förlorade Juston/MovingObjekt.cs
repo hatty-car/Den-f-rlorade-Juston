@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Den_förlorade_Juston
 {
-    internal class MovingObjekt: Object
+    internal class MovingObjekt: Objekt
     {
+        internal Vector2 velocity;
     }
 }

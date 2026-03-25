@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Den_förlorade_Juston
 {
-    internal class StationaryLevelObjekt:LevelObjekt
+    internal class Backgrund: StationaryObjekt
     {
     }
 }

@@ -1,11 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Numerics;
+
 
 namespace Den_förlorade_Juston
 {
     public class Game1 : Game
     {
+        Spelare spelare;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -27,6 +30,9 @@ namespace Den_förlorade_Juston
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            Data.spelarBild = Content.Load<Texture2D>("playerSheet");
+
+            spelare = new Spelare(Data.spelarBild, new Vector2(100, 500));
             // TODO: use this.Content to load your game content here
         }
 
