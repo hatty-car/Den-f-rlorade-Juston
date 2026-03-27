@@ -6,5 +6,11 @@ namespace Den_förlorade_Juston
 {
     internal class StationaryLevelObjekt:LevelObjekt
     {
+        public StationaryLevelObjekt(Texture2D texture, Vector2 Postion, Rectangle Hitbox) : base(texture, Postion)
+        {
+            postion = Postion;
+            image = texture;
+            hitBox = Hitbox;
+        }
     }
 }

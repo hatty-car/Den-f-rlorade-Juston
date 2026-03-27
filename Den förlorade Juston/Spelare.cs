@@ -7,7 +7,7 @@ namespace Den_förlorade_Juston
     internal class Spelare: MovingObjekt
     {   
         public bool alive, facing;
-        Rectangle sourceRect = new Rectangle(0, 0, 64, 64);
+        Rectangle sourceRect = new Rectangle(0, 0, 64, 32);
         public Rectangle boundingBox = new Rectangle(0, 0, 0, 0);
         float frameTimer;
         int frame, deadCounter;
@@ -16,14 +16,15 @@ namespace Den_förlorade_Juston
         int jumpStrenght = 60;
         public PlatformController Controller;
 
-        public Spelare(Texture2D Image, Vector2 Position)
+        public Spelare(Texture2D Image,Vector2 Velocity, Vector2 Position): base(Image, Velocity, Position)
         {
-            this.image = Image;
+            image = Image;
             postion = Position;
+            velocity = Velocity;
           
 
             isGrounded = true;
-            gravity = 2f;
+            gravity = 0f;
             speed = 10;
             frameTimer = 0;
             alive = facing = true;
@@ -32,8 +33,14 @@ namespace Den_förlorade_Juston
             boundingBox.Location = Position.ToPoint();
             boundingBox.Width = 192;
             boundingBox.Height = 198;
+
+          
+
+            Controller = new PlatformController();
+            Controller.Initialize(boundingBox, 5, 3, 64);
+            //Controller.SetCollisionMap(Data.level1.collisionMap);
         }
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
 
             if (Data.keyboard.IsKeyDown(Keys.D))
@@ -66,10 +73,6 @@ namespace Den_förlorade_Juston
                 jumpStrenght = 0;
             }
 
-
-
-
-
             velocity.Y += gravity;
             velocity = Controller.CalculateVelocity(velocity, boundingBox);
             if (Controller.collisions.below == true)
@@ -82,6 +85,26 @@ namespace Den_förlorade_Juston
             }
             postion += velocity;
             boundingBox.Location = postion.ToPoint();
+
+            sourceRect.X = 64 * (frame % 8);
+            sourceRect.Y = 64 * (frame / 8);
+
+            frameTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (frameTimer > 0.15f)
+            {
+                if (isGrounded && velocity.X == 0)
+                {
+
+                }
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            if (facing == true)
+                spriteBatch.Draw(image, postion, sourceRect, Color.White, 0.0f, new Vector2(0, 0), 3f, SpriteEffects.None, 0f);
+            else
+                spriteBatch.Draw(image, postion, sourceRect, Color.White, 0.0f, new Vector2(0, 0), 3f, SpriteEffects.FlipHorizontally, 0f);
         }
     }
 }

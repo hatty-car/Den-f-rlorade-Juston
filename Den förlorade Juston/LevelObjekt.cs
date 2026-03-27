@@ -7,5 +7,12 @@ namespace Den_förlorade_Juston
     internal class LevelObjekt: Objekt
     {
         internal Rectangle hitBox;
+
+        public LevelObjekt(Texture2D texture, Vector2 Postion): base(texture, Postion)
+        {
+            postion = Postion;
+            image = texture;
+
+        }
     }
 }

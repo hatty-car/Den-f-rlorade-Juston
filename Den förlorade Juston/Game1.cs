@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Numerics;
+
 
 
 namespace Den_förlorade_Juston
@@ -32,7 +32,7 @@ namespace Den_förlorade_Juston
 
             Data.spelarBild = Content.Load<Texture2D>("playerSheet");
 
-            spelare = new Spelare(Data.spelarBild, new Vector2(100, 500));
+            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f), new Vector2(100, 500)));
             // TODO: use this.Content to load your game content here
         }
 
@@ -43,6 +43,11 @@ namespace Den_förlorade_Juston
 
             // TODO: Add your update logic here
 
+            for (int i = 0; i < Data.All.Count; i++)
+            {
+                Data.All[i].Update(gameTime);
+            }
+
             base.Update(gameTime);
         }
 
@@ -51,7 +56,13 @@ namespace Den_förlorade_Juston
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            _spriteBatch.Begin();
+            //Data.backgrund.Draw(_spriteBatch);
+            for (int i = 0; i < Data.All.Count; i++)
+            {
+                Data.All[i].Draw(_spriteBatch);
+            }
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }
