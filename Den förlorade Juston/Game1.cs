@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,6 +11,7 @@ namespace Den_förlorade_Juston
         Spelare spelare;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private Kamera camera;
 
         public Game1()
         {
@@ -44,6 +45,8 @@ namespace Den_förlorade_Juston
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
+            
 
             // TODO: Add your update logic here
 
