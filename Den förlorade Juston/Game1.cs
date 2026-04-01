@@ -22,6 +22,10 @@ namespace Den_förlorade_Juston
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            _graphics.IsFullScreen = false;
+            _graphics.PreferredBackBufferWidth = 1920;
+            _graphics.PreferredBackBufferHeight = 1080;
+            _graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -32,7 +36,7 @@ namespace Den_förlorade_Juston
 
             Data.spelarBild = Content.Load<Texture2D>("playerSheet");
 
-            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f), new Vector2(100, 500)));
+            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(100, 500)));
             // TODO: use this.Content to load your game content here
         }
 
