@@ -42,7 +42,7 @@ namespace Den_förlorade_Juston
         }
         public override void Update(GameTime gameTime)
         {
-
+            Data.keyboard = Keyboard.GetState();
             if (Data.keyboard.IsKeyDown(Keys.D))
             {
                 velocity.X = speed;
@@ -85,8 +85,32 @@ namespace Den_förlorade_Juston
             postion += velocity;
             boundingBox.Location = postion.ToPoint();
 
-            sourceRect.X = 64 * (frame % 8);
-            sourceRect.Y = 64 * (frame / 8);
+            sourceRect.X = 32 * (frame % 6);
+            sourceRect.Y = 64 * (frame / 6);
+
+            frameTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (frameTimer > 0.15f)
+            {
+           
+                    frameTimer = 0;
+                    frame++;
+                if (velocity.X != 0)
+                {
+                    if (frame > 5)
+                    {
+                        frame = 2;
+                    }
+                }
+                else
+                {
+                    if (frame > 1)
+                    {
+                        frame = 0;
+                    }
+                }
+                    
+                
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)
