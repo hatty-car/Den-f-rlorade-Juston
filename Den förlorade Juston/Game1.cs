@@ -38,6 +38,11 @@ namespace Den_förlorade_Juston
             Data.spelarBild = Content.Load<Texture2D>("playerSheet");
 
             Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(100, 500)));
+
+            Data.viewPort.Width = 1920;
+            Data.viewPort.Height = 1080;
+            Data.camera = new Kamera(Data.camera.postion, Data.viewPort);
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -46,7 +51,9 @@ namespace Den_förlorade_Juston
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            
+            Data.camera.postion = Data.player.postion;
+            Data.camera.MoveCamera(Data.viewPort);
+            //camera.Follow(Data.player.postion, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
 
             // TODO: Add your update logic here
 

@@ -23,5 +23,8 @@ namespace Den_förlorade_Juston
         public static Spelare player;
 
         public static Backgrund backgrund;
+
+        public static Kamera camera;
+        public static Viewport viewPort;
     }
 }
