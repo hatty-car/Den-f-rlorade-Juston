@@ -12,7 +12,7 @@ namespace Den_förlorade_Juston
         public Rectangle bounds;
         public Rectangle visibleArea;
         public Matrix transform;
-        public Kamera(Vector2 Postion, Viewport viewPort): base(Postion)
+        public Kamera(Texture2D texture, Vector2 Velocity, Vector2 Postion, Viewport viewPort): base(texture, Velocity, Postion)
         {
             postion = Vector2.Zero;
         }

@@ -38,7 +38,7 @@ namespace Den_förlorade_Juston
 
             Controller = new PlatformController();
             Controller.Initialize(boundingBox, 5, 3, 64);
-            //Controller.SetCollisionMap(Data.level1.collisionMap);
+            Controller.SetCollisionMap(Data.level1.collisionMap);
         }
         public override void Update(GameTime gameTime)
         {

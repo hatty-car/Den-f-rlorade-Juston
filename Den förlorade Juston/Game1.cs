@@ -1,7 +1,8 @@
-﻿ using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
+using System.Collections.Generic;
+using System;
 
 
 namespace Den_förlorade_Juston
@@ -12,6 +13,7 @@ namespace Den_förlorade_Juston
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Kamera camera;
+        StationaryLevelObjekt level1;
 
         public Game1()
         {
@@ -36,12 +38,16 @@ namespace Den_förlorade_Juston
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             Data.spelarBild = Content.Load<Texture2D>("playerSheet");
+            Data.tileSet = Content.Load<Texture2D>("Tilemap");
 
+            Data.level1 = new StationaryLevelObjekt(Data.tileSet, 74, 24, 64, 12);
             Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(100, 500)));
+            //Data.player = new Spelare(Data.spelarBild, new Vector2(0f, 0f), new Vector2(100, 500));
+            level1 = new StationaryLevelObjekt(Data.tileSet, 28, 17, 64, 3);
 
             Data.viewPort.Width = 1920;
             Data.viewPort.Height = 1080;
-            Data.camera = new Kamera(Data.camera.postion, Data.viewPort);
+            Data.camera = new Kamera(null, new Vector2(0f, 0f), new Vector2(0f, 0f), Data.viewPort);
 
             // TODO: use this.Content to load your game content here
         }
@@ -51,8 +57,8 @@ namespace Den_förlorade_Juston
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            Data.camera.postion = Data.player.postion;
-            Data.camera.MoveCamera(Data.viewPort);
+            Data.camera.postion = Data.All[0].postion;
+            Data.camera.UpdateCamera(Data.viewPort);
             //camera.Follow(Data.player.postion, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
 
             // TODO: Add your update logic here

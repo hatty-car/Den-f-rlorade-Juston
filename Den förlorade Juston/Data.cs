@@ -14,7 +14,7 @@ namespace Den_förlorade_Juston
 
         public static KeyboardState keyboard;
 
-        public static Texture2D spelarBild;
+        public static Texture2D spelarBild, tileSet;
 
         public static SpriteFont text;
 
@@ -26,5 +26,7 @@ namespace Den_förlorade_Juston
 
         public static Kamera camera;
         public static Viewport viewPort;
+
+        public static StationaryLevelObjekt level1;
     }
 }
