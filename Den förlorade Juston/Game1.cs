@@ -78,6 +78,7 @@ namespace Den_förlorade_Juston
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
             //Data.backgrund.Draw(_spriteBatch);
+            Data.level1.Draw(_spriteBatch);
             for (int i = 0; i < Data.All.Count; i++)
             {
                 Data.All[i].Draw(_spriteBatch);
