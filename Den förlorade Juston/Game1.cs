@@ -14,6 +14,7 @@ namespace Den_förlorade_Juston
         private SpriteBatch _spriteBatch;
         private Kamera camera;
         StationaryLevelObjekt level1;
+        RenderTarget2D mainTarget;
 
         public Game1()
         {
@@ -30,6 +31,11 @@ namespace Den_förlorade_Juston
             _graphics.PreferredBackBufferHeight = 1080;
             _graphics.ApplyChanges();
 
+            mainTarget = new RenderTarget2D(GraphicsDevice, 1920, 1080);
+
+            Data.viewPort = new Viewport();
+            Data.viewPort = GraphicsDevice.Viewport;
+
             base.Initialize();
         }
 
@@ -40,14 +46,14 @@ namespace Den_förlorade_Juston
             Data.spelarBild = Content.Load<Texture2D>("playerSheet");
             Data.tileSet = Content.Load<Texture2D>("Tilemap");
 
-            Data.level1 = new StationaryLevelObjekt(Data.tileSet, 74, 24, 64, 12);
+            Data.level1 = new StationaryLevelObjekt(Data.tileSet, 74, 4, 64, 64);
             Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(100, 500)));
             //Data.player = new Spelare(Data.spelarBild, new Vector2(0f, 0f), new Vector2(100, 500));
-            level1 = new StationaryLevelObjekt(Data.tileSet, 28, 17, 64, 3);
+           
 
-            Data.viewPort.Width = 1920;
-            Data.viewPort.Height = 1080;
-            Data.camera = new Kamera(null, new Vector2(0f, 0f), new Vector2(0f, 0f), Data.viewPort);
+            Data.viewPort.Width = 240;
+            Data.viewPort.Height = 128;
+            Data.camera = new Kamera(Data.viewPort);
 
             // TODO: use this.Content to load your game content here
         }
@@ -57,9 +63,9 @@ namespace Den_förlorade_Juston
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            Data.camera.postion = Data.All[0].postion;
+            Data.camera.position = Data.All[0].postion;
             Data.camera.UpdateCamera(Data.viewPort);
-            //camera.Follow(Data.player.postion, new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
+         
 
             // TODO: Add your update logic here
 
@@ -74,15 +80,21 @@ namespace Den_förlorade_Juston
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.SetRenderTarget(mainTarget);
 
             // TODO: Add your drawing code here
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(transformMatrix: Data.camera.transform, samplerState: SamplerState.PointClamp);
             //Data.backgrund.Draw(_spriteBatch);
             Data.level1.Draw(_spriteBatch);
             for (int i = 0; i < Data.All.Count; i++)
             {
                 Data.All[i].Draw(_spriteBatch);
             }
+            _spriteBatch.End();
+            GraphicsDevice.SetRenderTarget(null);
+
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            _spriteBatch.Draw(mainTarget, new Vector2(0, 0), null, Color.White, 0f, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0f);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

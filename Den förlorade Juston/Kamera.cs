@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Den_förlorade_Juston
 {
-    internal class Kamera: MovingObjekt
+    internal class Kamera
     {
 
         public float zoom;
@@ -12,9 +12,11 @@ namespace Den_förlorade_Juston
         public Rectangle bounds;
         public Rectangle visibleArea;
         public Matrix transform;
-        public Kamera(Texture2D texture, Vector2 Velocity, Vector2 Postion, Viewport viewPort): base(texture, Velocity, Postion)
+        public Kamera(Viewport viewPort)
         {
-            postion = Vector2.Zero;
+            bounds = viewPort.Bounds;
+            zoom = 1f;
+            position = Vector2.Zero;
         }
 
         private void UpdateVisibleArea()
@@ -45,8 +47,8 @@ namespace Den_förlorade_Juston
 
         public void MoveCamera(Vector2 movePosition)
         {
-            Vector2 newPosition = postion + movePosition;
-            postion = newPosition;
+            Vector2 newPosition = position + movePosition;
+            position = newPosition;
         }
 
         public void UpdateCamera(Viewport bounds)
