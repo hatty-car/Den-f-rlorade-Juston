@@ -89,7 +89,7 @@ namespace Den_förlorade_Juston
             sourceRect.Y = 64 * (frame / 6);
 
             frameTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (frameTimer > 0.15f)
+            if (frameTimer > 0.3f)
             {
            
                     frameTimer = 0;

@@ -46,9 +46,9 @@ namespace Den_förlorade_Juston
             Data.spelarBild = Content.Load<Texture2D>("playerSheet");
             Data.tileSet = Content.Load<Texture2D>("Tilemap");
 
-            Data.level1 = new StationaryLevelObjekt(Data.tileSet, 74, 4, 64, 64);
+            Data.level1 = new StationaryLevelObjekt(Data.tileSet, 74, 24, 64, 7);
             Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(100, 500)));
-            //Data.player = new Spelare(Data.spelarBild, new Vector2(0f, 0f), new Vector2(100, 500));
+       
            
 
             Data.viewPort.Width = 240;
@@ -94,7 +94,7 @@ namespace Den_förlorade_Juston
             GraphicsDevice.SetRenderTarget(null);
 
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            _spriteBatch.Draw(mainTarget, new Vector2(0, 0), null, Color.White, 0f, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0f);
+            _spriteBatch.Draw(mainTarget, new Vector2(0, 0), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             _spriteBatch.End();
             base.Draw(gameTime);
         }
