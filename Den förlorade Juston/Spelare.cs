@@ -31,8 +31,8 @@ namespace Den_förlorade_Juston
             frame = deadCounter = 0;
 
             boundingBox.Location = Position.ToPoint();
-            boundingBox.Width = 192;
-            boundingBox.Height = 64;
+            boundingBox.Width = 64;
+            boundingBox.Height = 180;
 
           
 
@@ -72,8 +72,12 @@ namespace Den_förlorade_Juston
                 gravity = 2;
                 jumpStrenght = 0;
             }
+            velocity.Y += gravity;
+            velocity = Controller.CalculateVelocity(velocity, boundingBox);
 
-            //velocity.Y += gravity;
+            postion += velocity;
+            boundingBox.Location = postion.ToPoint();
+
             if (Controller.collisions.below == true)
             {
                 isGrounded = true;
@@ -82,8 +86,15 @@ namespace Den_förlorade_Juston
             {
                 isGrounded = false;
             }
-            postion += velocity;
-            boundingBox.Location = postion.ToPoint();
+         
+            if (Controller.collisions.below == true)
+            {
+                isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
+            }
 
             sourceRect.X = 32 * (frame % 6);
             sourceRect.Y = 64 * (frame / 6);
@@ -119,6 +130,7 @@ namespace Den_förlorade_Juston
                 spriteBatch.Draw(image, postion, sourceRect, Color.White, 0.0f, new Vector2(0, 0), 3f, SpriteEffects.None, 0f);
             else
                 spriteBatch.Draw(image, postion, sourceRect, Color.White, 0.0f, new Vector2(0, 0), 3f, SpriteEffects.FlipHorizontally, 0f);
+            //spriteBatch.Draw(Data.tileSet, boundingBox, Color.White);
         }
     }
 }

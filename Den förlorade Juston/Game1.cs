@@ -46,13 +46,13 @@ namespace Den_förlorade_Juston
             Data.spelarBild = Content.Load<Texture2D>("playerSheet");
             Data.tileSet = Content.Load<Texture2D>("Tilemap");
 
-            Data.level1 = new StationaryLevelObjekt(Data.tileSet, 74, 24, 64, 7);
-            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(100, 500)));
+            Data.level1 = new StationaryLevelObjekt(Data.tileSet, 145, 24, 64, 7);
+            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(200, 500)));
        
            
 
-            Data.viewPort.Width = 240;
-            Data.viewPort.Height = 128;
+            Data.viewPort.Width = 300;
+            Data.viewPort.Height = 1400;
             Data.camera = new Kamera(Data.viewPort);
 
             // TODO: use this.Content to load your game content here
