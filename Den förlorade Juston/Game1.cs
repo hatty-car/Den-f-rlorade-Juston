@@ -17,6 +17,7 @@ namespace Den_förlorade_Juston
         StationaryLevelObjekt level1;
         RenderTarget2D mainTarget;
         Texture2D bakgrundSkog;
+        Texture2D bakgrund2;
 
         public Game1()
         {
@@ -48,6 +49,7 @@ namespace Den_förlorade_Juston
             Data.spelarBild = Content.Load<Texture2D>("playerSheet");
             Data.tileSet = Content.Load<Texture2D>("Tilemap");
             bakgrundSkog = Content.Load<Texture2D>("forestBackground");
+            bakgrund2 = Content.Load<Texture2D>("secondBackground");
 
             Data.level1 = new StationaryLevelObjekt(Data.tileSet, 145, 24, 64, 7);
             Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(200, 1165)));
@@ -90,6 +92,7 @@ namespace Den_förlorade_Juston
             _spriteBatch.Begin(transformMatrix: Data.camera.transform, samplerState: SamplerState.PointClamp);
             //Data.backgrund.Draw(_spriteBatch);
             _spriteBatch.Draw(bakgrundSkog, new Vector2(0, 400), Color.White);
+            _spriteBatch.Draw(bakgrundSkog, new Vector2(3840, 400), Color.White);
             Data.level1.Draw(_spriteBatch);
             for (int i = 0; i < Data.All.Count; i++)
             {
