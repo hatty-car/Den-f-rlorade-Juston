@@ -50,7 +50,7 @@ namespace Den_förlorade_Juston
             bakgrundSkog = Content.Load<Texture2D>("forestBackground");
 
             Data.level1 = new StationaryLevelObjekt(Data.tileSet, 145, 24, 64, 7);
-            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(200, 500)));
+            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(200, 1165)));
        
            
 
@@ -65,8 +65,9 @@ namespace Den_förlorade_Juston
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            Data.camera.position = Data.All[0].postion;
+            Vector2 temp = Data.All[0].postion;
+            temp.Y = 1164;
+            Data.camera.position = temp;
             Data.camera.UpdateCamera(Data.viewPort);
          
 

@@ -14,7 +14,7 @@ namespace Den_förlorade_Juston
 
         public static KeyboardState keyboard;
 
-        public static Texture2D spelarBild, tileSet;
+        public static Texture2D spelarBild, tileSet, forestBackground;
 
         public static SpriteFont text;
 
