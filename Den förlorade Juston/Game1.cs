@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System;
+using System.ComponentModel;
 
 
 namespace Den_förlorade_Juston
@@ -15,6 +16,7 @@ namespace Den_förlorade_Juston
         private Kamera camera;
         StationaryLevelObjekt level1;
         RenderTarget2D mainTarget;
+        Texture2D bakgrundSkog;
 
         public Game1()
         {
@@ -45,6 +47,7 @@ namespace Den_förlorade_Juston
 
             Data.spelarBild = Content.Load<Texture2D>("playerSheet");
             Data.tileSet = Content.Load<Texture2D>("Tilemap");
+            bakgrundSkog = Content.Load<Texture2D>("forestBackground");
 
             Data.level1 = new StationaryLevelObjekt(Data.tileSet, 145, 24, 64, 7);
             Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(200, 500)));
@@ -85,6 +88,7 @@ namespace Den_förlorade_Juston
             // TODO: Add your drawing code here
             _spriteBatch.Begin(transformMatrix: Data.camera.transform, samplerState: SamplerState.PointClamp);
             //Data.backgrund.Draw(_spriteBatch);
+            _spriteBatch.Draw(bakgrundSkog, new Vector2(0, 400), Color.White);
             Data.level1.Draw(_spriteBatch);
             for (int i = 0; i < Data.All.Count; i++)
             {
