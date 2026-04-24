@@ -4,15 +4,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Den_förlorade_Juston
 {
-    internal class MovingLevelObjekt:LevelObjekt
+    internal class MovingLevelObjekt
     {
-        internal Vector2 velocity;
-        public MovingLevelObjekt(Texture2D texture, Vector2 Velocity, Vector2 Postion, Rectangle Hitbox): base (texture, Postion)
-        {
-            postion = Postion;
-            image = texture;
-            hitBox = Hitbox;
-            velocity = Velocity;
-        }
+       
     }
 }
