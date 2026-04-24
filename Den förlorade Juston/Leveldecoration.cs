@@ -1,9 +1,6 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Den_förlorade_Juston
 {
@@ -43,7 +40,7 @@ namespace Den_förlorade_Juston
 
         public bool[,] collisionMap;
 
-        public StationaryLevelObjekt(Texture2D image, int sizeX, int sizeY, int tileSize, int tileColumns)
+        public Leveldecoration(Texture2D image, int sizeX, int sizeY, int tileSize, int tileColumns)
         {
             this.image = image;
             this.sizeX = sizeX;
@@ -89,4 +86,4 @@ namespace Den_förlorade_Juston
 
     }
 }
-}
+
