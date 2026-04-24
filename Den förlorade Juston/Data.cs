@@ -28,5 +28,7 @@ namespace Den_förlorade_Juston
         public static Viewport viewPort;
 
         public static StationaryLevelObjekt level1;
+        public static SpikeTilemap level2;
+        public static Leveldecoration level3;
     }
 }

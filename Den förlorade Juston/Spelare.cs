@@ -14,7 +14,7 @@ namespace Den_förlorade_Juston
         bool isGrounded, isJumping;
         float gravity, speed;
         int jumpStrenght = 60;
-        public PlatformController Controller;
+        public PlatformController Controller, spikeController;
 
         public Spelare(Texture2D Image,Vector2 Velocity, Vector2 Position): base(Image, Velocity, Position)
         {
@@ -39,6 +39,11 @@ namespace Den_förlorade_Juston
             Controller = new PlatformController();
             Controller.Initialize(boundingBox, 5, 3, 64);
             Controller.SetCollisionMap(Data.level1.collisionMap);
+
+            spikeController = new PlatformController();
+            spikeController.Initialize(boundingBox, 5, 3, 64);
+            spikeController.SetCollisionMap(Data.level2.collisionMap);
+
         }
         public override void Update(GameTime gameTime)
         {
@@ -74,6 +79,7 @@ namespace Den_förlorade_Juston
             }
             velocity.Y += gravity;
             velocity = Controller.CalculateVelocity(velocity, boundingBox);
+            velocity = spikeController.CalculateVelocity(velocity, boundingBox);
 
             postion += velocity;
             boundingBox.Location = postion.ToPoint();
@@ -87,13 +93,13 @@ namespace Den_förlorade_Juston
                 isGrounded = false;
             }
          
-            if (Controller.collisions.below == true)
+            if (spikeController.collisions.below == true || spikeController.collisions.above || spikeController.collisions.left || spikeController.collisions.right)
             {
-                isGrounded = true;
+                Data.All[0].postion = new Vector2(200, 1165);
             }
             else
             {
-                isGrounded = false;
+                
             }
 
             sourceRect.X = 32 * (frame % 6);

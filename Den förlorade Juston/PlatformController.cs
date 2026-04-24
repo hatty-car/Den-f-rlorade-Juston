@@ -151,7 +151,7 @@ namespace Den_förlorade_Juston
             verticalRaySpacing = (boundingBox.Width - 1) / (verticalRayCount - 1);
         }
 
-        bool CheckCollision(Vector2 point)
+         bool CheckCollision(Vector2 point)
         {
             if (point.X < boundaryLeft || point.X > boundaryRight || point.Y < boundaryUp || point.Y > boundaryDown)
                 return false;
