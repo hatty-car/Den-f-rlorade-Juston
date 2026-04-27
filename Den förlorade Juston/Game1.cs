@@ -93,9 +93,9 @@ namespace Den_förlorade_Juston
             // TODO: Add your drawing code here
             _spriteBatch.Begin(transformMatrix: Data.camera.transform, samplerState: SamplerState.PointClamp);
             //Data.backgrund.Draw(_spriteBatch);
-            _spriteBatch.Draw(bakgrundSkog, new Vector2(0, 400), Color.White);
-            _spriteBatch.Draw(bakgrundSkog, new Vector2(3840, 400), Color.White);
-            _spriteBatch.Draw(bakgrund2, new Vector2(7680, 400), Color.White);
+            _spriteBatch.Draw(bakgrundSkog, new Vector2(0, 430), Color.White);
+            _spriteBatch.Draw(bakgrundSkog, new Vector2(3840, 430), Color.White);
+            _spriteBatch.Draw(bakgrund2, new Vector2(7680, 430), Color.White);
             Data.level1.Draw(_spriteBatch);
             Data.level2.Draw(_spriteBatch);
             Data.level3.Draw(_spriteBatch);
