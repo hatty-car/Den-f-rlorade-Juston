@@ -95,6 +95,7 @@ namespace Den_förlorade_Juston
             //Data.backgrund.Draw(_spriteBatch);
             _spriteBatch.Draw(bakgrundSkog, new Vector2(0, 400), Color.White);
             _spriteBatch.Draw(bakgrundSkog, new Vector2(3840, 400), Color.White);
+            _spriteBatch.Draw(bakgrund2, new Vector2(7680, 400), Color.White);
             Data.level1.Draw(_spriteBatch);
             Data.level2.Draw(_spriteBatch);
             Data.level3.Draw(_spriteBatch);
