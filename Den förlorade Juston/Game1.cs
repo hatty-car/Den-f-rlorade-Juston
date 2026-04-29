@@ -30,11 +30,11 @@ namespace Den_förlorade_Juston
         {
             // TODO: Add your initialization logic here
             _graphics.IsFullScreen = false;
-            _graphics.PreferredBackBufferWidth = 1920;
-            _graphics.PreferredBackBufferHeight = 1080;
+            _graphics.PreferredBackBufferWidth = 1080;
+            _graphics.PreferredBackBufferHeight = 1060;
             _graphics.ApplyChanges();
 
-            mainTarget = new RenderTarget2D(GraphicsDevice, 1920, 1080);
+            mainTarget = new RenderTarget2D(GraphicsDevice, 1080, 1080);
 
             Data.viewPort = new Viewport();
             Data.viewPort = GraphicsDevice.Viewport;
