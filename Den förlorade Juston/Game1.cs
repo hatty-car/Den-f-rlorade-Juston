@@ -18,6 +18,7 @@ namespace Den_förlorade_Juston
         RenderTarget2D mainTarget;
         Texture2D bakgrundSkog;
         Texture2D bakgrund2;
+        Texture2D bakgrundBy;
 
         public Game1()
         {
@@ -50,6 +51,7 @@ namespace Den_förlorade_Juston
             Data.tileSet = Content.Load<Texture2D>("Tilemap");
             bakgrundSkog = Content.Load<Texture2D>("forestBackground");
             bakgrund2 = Content.Load<Texture2D>("secondBackground");
+            bakgrundBy = Content.Load<Texture2D>("villageBackground");
 
             Data.level1 = new StationaryLevelObjekt(Data.tileSet, 145, 25, 64, 7);
             Data.level2 = new SpikeTilemap(Data.tileSet, 145, 24, 64, 7);
@@ -96,6 +98,8 @@ namespace Den_förlorade_Juston
             _spriteBatch.Draw(bakgrundSkog, new Vector2(0, 430), Color.White);
             _spriteBatch.Draw(bakgrundSkog, new Vector2(3840, 430), Color.White);
             _spriteBatch.Draw(bakgrund2, new Vector2(7680, 430), Color.White);
+            _spriteBatch.Draw(bakgrundBy, new Vector2(8640, 430), Color.White);
+            _spriteBatch.Draw(bakgrundBy, new Vector2(12480, 430), Color.White);
             Data.level1.Draw(_spriteBatch);
             Data.level2.Draw(_spriteBatch);
             Data.level3.Draw(_spriteBatch);
