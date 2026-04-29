@@ -53,8 +53,8 @@ namespace Den_förlorade_Juston
             bakgrund2 = Content.Load<Texture2D>("secondBackground");
             bakgrundBy = Content.Load<Texture2D>("villageBackground");
 
-            Data.level1 = new StationaryLevelObjekt(Data.tileSet, 145, 25, 64, 7);
-            Data.level2 = new SpikeTilemap(Data.tileSet, 145, 24, 64, 7);
+            Data.level1 = new StationaryLevelObjekt(Data.tileSet, 290, 25, 64, 7);
+            Data.level2 = new SpikeTilemap(Data.tileSet, 290, 24, 64, 7);
             Data.level3 = new Leveldecoration(Data.tileSet, 145, 24, 64, 7);
             Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(320, 1165)));
        
