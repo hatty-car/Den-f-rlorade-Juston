@@ -56,7 +56,7 @@ namespace Den_förlorade_Juston
             Data.level1 = new StationaryLevelObjekt(Data.tileSet, 290, 25, 64, 7);
             Data.level2 = new SpikeTilemap(Data.tileSet, 290, 24, 64, 7);
             Data.level3 = new Leveldecoration(Data.tileSet, 290, 24, 64, 7);
-            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(8000, 1165)));
+            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(250, 1165)));
        
            
 
