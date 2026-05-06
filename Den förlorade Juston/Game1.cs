@@ -16,9 +16,8 @@ namespace Den_förlorade_Juston
         private Kamera camera;
         StationaryLevelObjekt level1;
         RenderTarget2D mainTarget;
-        Texture2D bakgrundSkog;
-        Texture2D bakgrund2;
-        Texture2D bakgrundBy;
+        Texture2D bakgrundSkog, bakgrundBy, bakgrund2, bakgrund4, bakgrundKyrka;
+        
 
         public Game1()
         {
@@ -52,11 +51,13 @@ namespace Den_förlorade_Juston
             bakgrundSkog = Content.Load<Texture2D>("forestBackground");
             bakgrund2 = Content.Load<Texture2D>("secondBackground");
             bakgrundBy = Content.Load<Texture2D>("villageBackground");
+            bakgrund4 = Content.Load<Texture2D>("fourthBackground");
+            bakgrundKyrka = Content.Load<Texture2D>("churchBackground");
 
             Data.level1 = new StationaryLevelObjekt(Data.tileSet, 290, 25, 64, 7);
             Data.level2 = new SpikeTilemap(Data.tileSet, 290, 24, 64, 7);
             Data.level3 = new Leveldecoration(Data.tileSet, 290, 24, 64, 7);
-            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(250, 1165)));
+            Data.All.Add(new Spelare(Data.spelarBild, new Vector2(0f,  0f), new Vector2(18000, 1165)));
        
            
 
@@ -100,6 +101,8 @@ namespace Den_förlorade_Juston
             _spriteBatch.Draw(bakgrund2, new Vector2(7680, 430), Color.White);
             _spriteBatch.Draw(bakgrundBy, new Vector2(8640, 430), Color.White);
             _spriteBatch.Draw(bakgrundBy, new Vector2(12480, 430), Color.White);
+            _spriteBatch.Draw(bakgrund4, new Vector2(16320, 430), Color.White);
+            _spriteBatch.Draw(bakgrundKyrka, new Vector2(17280, 430), Color.White);
             Data.level1.Draw(_spriteBatch);
             Data.level2.Draw(_spriteBatch);
             Data.level3.Draw(_spriteBatch);
