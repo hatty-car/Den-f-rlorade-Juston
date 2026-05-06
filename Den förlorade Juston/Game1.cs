@@ -113,7 +113,7 @@ namespace Den_förlorade_Juston
             Data.level1.Draw(_spriteBatch);
             Data.level2.Draw(_spriteBatch);
             Data.level3.Draw(_spriteBatch);
-            Data.level2.Draw(_spriteBatch);
+            
 
             _spriteBatch.DrawString(deathTracker, "Deaths: " + Data.deathCount.ToString(), new Vector2(deathTrackerPosition.X + 725, 475), Color.White);
 
