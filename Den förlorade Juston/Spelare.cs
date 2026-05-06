@@ -10,11 +10,12 @@ namespace Den_förlorade_Juston
         Rectangle sourceRect = new Rectangle(0, 0, 32, 64);
         public Rectangle boundingBox = new Rectangle(0, 0, 0, 0);
         float frameTimer;
-        int frame, deadCounter;
+        int frame;
         bool isGrounded, isJumping;
         float gravity, speed;
         int jumpStrenght = 60;
         public PlatformController Controller, spikeController;
+        
 
         public Spelare(Texture2D Image,Vector2 Velocity, Vector2 Position): base(Image, Velocity, Position)
         {
@@ -28,11 +29,11 @@ namespace Den_förlorade_Juston
             speed = 10;
             frameTimer = 0;
             alive = facing = true;
-            frame = deadCounter = 0;
 
             boundingBox.Location = Position.ToPoint();
             boundingBox.Width = 64;
             boundingBox.Height = 180;
+
 
           
 
@@ -96,6 +97,7 @@ namespace Den_förlorade_Juston
             if (spikeController.collisions.below == true || spikeController.collisions.above || spikeController.collisions.left || spikeController.collisions.right)
             {
                 Data.All[0].postion = new Vector2(200, 1165);
+                Data.deathCount += 0.5;
             }
             else
             {

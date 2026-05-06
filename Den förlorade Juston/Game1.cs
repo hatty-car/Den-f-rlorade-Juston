@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System;
 using System.ComponentModel;
+using static System.Formats.Asn1.AsnWriter;
 
 
 namespace Den_förlorade_Juston
@@ -17,6 +18,8 @@ namespace Den_förlorade_Juston
         StationaryLevelObjekt level1;
         RenderTarget2D mainTarget;
         Texture2D bakgrundSkog, bakgrund2, bakgrundBy, bakgrund4, bakgrundKyrka;
+        SpriteFont deathTracker;
+        Vector2 deathTrackerPosition, deathTrackerVelocity;
 
         public Game1()
         {
@@ -51,6 +54,7 @@ namespace Den_förlorade_Juston
             bakgrund2 = Content.Load<Texture2D>("secondBackground");
             bakgrundBy = Content.Load<Texture2D>("villageBackground");
             bakgrund4 = Content.Load<Texture2D>("fourthBackground");
+            deathTracker = Content.Load<SpriteFont>("deathCount");
 
             Data.level1 = new StationaryLevelObjekt(Data.tileSet, 290, 25, 64, 7);
             Data.level2 = new SpikeTilemap(Data.tileSet, 290, 25, 64, 7);
@@ -74,6 +78,9 @@ namespace Den_förlorade_Juston
             temp.Y = 1164;
             Data.camera.position = temp;
             Data.camera.UpdateCamera(Data.viewPort);
+
+
+            deathTrackerPosition = Data.All[0].postion;
          
 
             // TODO: Add your update logic here
@@ -100,10 +107,15 @@ namespace Den_förlorade_Juston
             _spriteBatch.Draw(bakgrundBy, new Vector2(8640, 430), Color.White);
             _spriteBatch.Draw(bakgrundBy, new Vector2(12480, 430), Color.White);
             _spriteBatch.Draw(bakgrund4, new Vector2(16320, 430), Color.White);
+
+            
+
             Data.level1.Draw(_spriteBatch);
             Data.level3.Draw(_spriteBatch);
             Data.level2.Draw(_spriteBatch);
-          
+
+            _spriteBatch.DrawString(deathTracker, "Deaths: " + Data.deathCount.ToString(), new Vector2(deathTrackerPosition.X + 725, 475), Color.White);
+
             for (int i = 0; i < Data.All.Count; i++)
             {
                 Data.All[i].Draw(_spriteBatch);

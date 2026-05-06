@@ -25,6 +25,13 @@
 /processorParam:TextureFormat=Color
 /build:churchBackground.png
 
+#begin deathCount.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:deathCount.spritefont
+
 #begin forestBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
