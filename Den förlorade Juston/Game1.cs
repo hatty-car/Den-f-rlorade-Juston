@@ -111,6 +111,7 @@ namespace Den_förlorade_Juston
             
 
             Data.level1.Draw(_spriteBatch);
+            Data.level2.Draw(_spriteBatch);
             Data.level3.Draw(_spriteBatch);
             Data.level2.Draw(_spriteBatch);
 
