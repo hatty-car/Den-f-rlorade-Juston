@@ -4,12 +4,15 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Den_förlorade_Juston
 {
-    internal class Ui: StationaryObjekt
+    internal class Ui
     {
-        public Ui(Texture2D texture, Vector2 Postion) : base(texture, Postion)
+        string namn, time;
+        double death;
+        public Ui(string Namn, string Time, double Death)
         {
-            postion = Postion;
-            image = texture;
+            namn = Namn;
+            time = Time;
+            death = Death;
         }
     }
 }

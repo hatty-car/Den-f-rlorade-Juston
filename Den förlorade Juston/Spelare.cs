@@ -49,12 +49,12 @@ namespace Den_förlorade_Juston
         public override void Update(GameTime gameTime)
         {
             Data.keyboard = Keyboard.GetState();
-            if (Data.keyboard.IsKeyDown(Keys.D))
+            if (Data.keyboard.IsKeyDown(Keys.D) && Data.Win == false)
             {
                 velocity.X = speed;
                 facing = true;
             }
-            else if (Data.keyboard.IsKeyDown(Keys.A))
+            else if (Data.keyboard.IsKeyDown(Keys.A) && Data.Win == false)
             {
                 velocity.X = -speed;
                 facing = false;
@@ -67,7 +67,7 @@ namespace Den_förlorade_Juston
             {
                 jumpStrenght = 60;
             }
-            if (Data.keyboard.IsKeyDown(Keys.Space) && isJumping == false && jumpStrenght > 0)
+            if (Data.keyboard.IsKeyDown(Keys.Space) && isJumping == false && jumpStrenght > 0 && Data.Win == false)
             {
                 gravity = 0;
                 jumpStrenght -= 5;
@@ -97,7 +97,8 @@ namespace Den_förlorade_Juston
             if (spikeController.collisions.below == true || spikeController.collisions.above || spikeController.collisions.left || spikeController.collisions.right)
             {
                 Data.All[0].postion = new Vector2(200, 1165);
-                Data.deathCount += 0.5;
+                boundingBox.Location = postion.ToPoint();
+                Data.deathCount += 1;
             }
             else
             {

@@ -10,7 +10,9 @@ namespace Den_förlorade_Juston
     internal class Data
     {
         public static List<Objekt> All = new List<Objekt>();
+        public static List<Ui> save = new List<Ui>();
 
+        public static bool Win;
 
         public static KeyboardState keyboard;
 

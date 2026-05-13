@@ -56,6 +56,27 @@
 /processorParam:TextureFormat=Color
 /build:fourthBackground.png
 
+#begin klar.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:klar.spritefont
+
+#begin leaderboard.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:leaderboard.spritefont
+
+#begin namn.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:namn.spritefont
+
 #begin playerSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
